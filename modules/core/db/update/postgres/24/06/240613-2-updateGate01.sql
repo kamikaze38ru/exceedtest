@@ -1,0 +1,1 @@
+create unique index IDX_EXCEEDTEST_GATE_UNQ on EXCEEDTEST_GATE (GATE_NUMBER) where DELETE_TS is null ;

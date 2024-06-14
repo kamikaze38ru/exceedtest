@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="Acceptance" caption="mainMsg://menu_config.Acceptance" description="mainMsg://Acceptance.description">
+        <item screen="exceedtest_ReceivingManagement" id="ManagerScreen" caption="mainMsg://menu_config.managerscreen" openType="NEW_TAB"
+              description="mainMsg://ManagerScreen.description"/>
+        <item screen="exceedtest_ReceivingManagement" caption="mainMsg://menu_config.exceedtest_ReceivingManagement"
+              description="mainMsg://default.description"/>
+        <item screen="exceedtest_PlaninLog.browse" caption="mainMsg://menu_config.exceedtest_PlaninLog.browse"/>
+    </menu>
+    <menu id="Directories" caption="mainMsg://menu_config.null" description="mainMsg://Directories.description">
+        <item screen="exceedtest_Client.browse" id="Provider" caption="mainMsg://menu_config.aboutWindow" openType="NEW_TAB"
+              description="mainMsg://Provider.description"/>
+        <item screen="exceedtest_Gate.browse" id="Gates" caption="mainMsg://menu_config.nulll" openType="NEW_TAB"
+              description="mainMsg://Gates.description"/>
+    </menu>
+</menu-config>

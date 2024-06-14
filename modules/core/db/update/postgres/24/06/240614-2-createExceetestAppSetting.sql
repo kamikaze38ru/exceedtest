@@ -1,0 +1,1 @@
+create unique index IDX_EXCEETEST_APP_SETTING_UK_NAME on EXCEETEST_APP_SETTING (NAME) where DELETE_TS is null ;

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://receivingManagement.caption"
+        messagesPack="com.company.exceetest.web.screens">
+    <data readOnly="true">
+        <collection id="planinsDc" class="com.company.exceetest.entity.Planin" view="_local">
+            <loader id="planinsDl">
+                <query><![CDATA[select e from exceedtest_Planin e]]></query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600" width="800"/>
+    <facets>
+        <timer id="refreshTimer" delay="30000" autostart="true" repeating="true"/>
+    </facets>
+    <layout expand="tabSheet" spacing="true">
+        <tabSheet id="tabSheet" width="100%" caption="msg://tabSheet.caption">
+            <tab id="scheduledTab" caption="msg://scheduledTab.caption">
+                <groupTable id="scheduledPlaninsTable" width="100%" dataContainer="planinsDc">
+                    <actions>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="registrationNumber"/>
+                        <column id="orderNumber"/>
+                        <column id="supplier"/>
+                        <column id="plannedArrivalDate"/>
+                        <column id="vehicleNumber"/>
+                        <column id="capacity"/>
+                        <column id="fullName"/>
+                        <column id="phone"/>
+                        <column id="status"/>
+                        <column id="state"/>
+                        <column id="gateNumber"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel" alwaysVisible="true">
+                        <button id="editBtn" action="scheduledPlaninsTable.edit"/>
+                        <button id="removeBtn" action="scheduledPlaninsTable.remove"/>
+                        <button id="registerBtn"
+                                caption="msg://registerBtn.caption" invoke="onRegisterBtnClick"/>
+                        <button id="scheduledPlaninsTableAssignGateBtn"
+                                caption="msg://scheduledPlaninsTableAssignGateBtn.caption"
+                                invoke="onScheduledPlaninsTableAssignGateBtnClick"/>
+                    </buttonsPanel>
+                </groupTable>
+                <label id="scheduledCountLabel" align="BOTTOM_RIGHT"/>
+                <filter id="scheduledFilter" applyTo="scheduledPlaninsTable" dataLoader="planinsDl">
+                    <properties include=".*"/>
+                </filter>
+            </tab>
+            <tab id="atGateTab" caption="msg://atGateTab.caption">
+                <groupTable id="atGatePlaninsTable" width="100%" dataContainer="planinsDc">
+                    <columns>
+                        <column id="timeAtGate"/>
+                        <column id="gate"/>
+                        <column id="registrationNumber"/>
+                        <column id="orderNumber"/>
+                        <column id="supplier"/>
+                        <column id="plannedArrivalDate"/>
+                        <column id="vehicleNumber"/>
+                        <column id="capacity"/>
+                        <column id="fullName"/>
+                        <column id="phone"/>
+                        <column id="status"/>
+                        <column id="state"/>
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="atGateButtonsPanel" alwaysVisible="true">
+                        <button id="completeLoadingBtn" caption="Загрузка Завершена"
+                                invoke="onCompleteLoadingBtnClick"/>
+                    </buttonsPanel>
+                </groupTable>
+                <label id="atGateCountLabel" align="BOTTOM_RIGHT"/>
+                <filter id="atGateFilter" applyTo="atGatePlaninsTable" dataLoader="planinsDl">
+                    <properties include=".*"/>
+                </filter>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>
